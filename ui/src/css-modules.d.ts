@@ -1,0 +1,1 @@
+declare module '*.module.css' { const classes: { readonly dialog: string; readonly scroll: string; readonly notice: string; readonly facts: string; readonly loading: string; readonly children: string }; export default classes }

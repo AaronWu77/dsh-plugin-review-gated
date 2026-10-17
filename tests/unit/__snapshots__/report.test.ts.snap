@@ -1,0 +1,212 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`six-part Main report > pins the exact model and generic UI text while separating historical completion from currency > six-section completed report 1`] = `
+"## Completion
+
+\`\`\`json
+{
+  "phase": "Completed",
+  "executionIntent": "implementation",
+  "requirementsAuthorizationComplete": false,
+  "operationPermissionCurrent": false,
+  "operationPermissionStatus": "not-recorded",
+  "handoffPermissionRecorded": false,
+  "hostTaskStatus": null,
+  "implementationCompleted": true,
+  "approvedChecksPassed": true,
+  "independentReviewPassed": true,
+  "handoffCompleted": true,
+  "currentDeliverableVerified": false,
+  "snapshotCurrency": {
+    "status": "current",
+    "reason": "Fixture currency observation"
+  }
+}
+\`\`\`
+
+## Changes
+
+\`\`\`json
+{
+  "summaryAuthority": "implementation-role-reported; not host verification or independent review",
+  "summary": "CSV export",
+  "changedPaths": [
+    "src/export.ts"
+  ],
+  "executionIntent": "implementation",
+  "briefRevision": 1,
+  "baseCommit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "treeId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "snapshotId": "snapshot-1"
+}
+\`\`\`
+
+## Problems
+
+\`\`\`json
+{
+  "roleResultFailures": [],
+  "implementation": [],
+  "findings": [],
+  "pauseReason": null,
+  "questions": [],
+  "blockedReason": null
+}
+\`\`\`
+
+## Verification and review
+
+\`\`\`json
+{
+  "decisionEvidence": {
+    "approval": {
+      "questionId": "approval-1",
+      "kind": "approval",
+      "status": "historical-unattributed",
+      "question": null,
+      "detail": null,
+      "options": null,
+      "serviceAnswer": null,
+      "confirmedSelection": null,
+      "receipt": null,
+      "failure": null,
+      "source": "unknown",
+      "missingSourceNote": "No linked logged user confirmation; question IDs and service answers alone do not identify who answered."
+    },
+    "recovery": {
+      "questionId": null,
+      "kind": "recovery",
+      "status": "not-recorded",
+      "question": null,
+      "detail": null,
+      "options": null,
+      "serviceAnswer": null,
+      "confirmedSelection": null,
+      "receipt": null,
+      "failure": null,
+      "source": "not-recorded",
+      "missingSourceNote": null,
+      "historicalAction": null
+    },
+    "pending": [],
+    "sourceLimit": "A logged user-message reference identifies the recorded user-input channel, not independent natural-person identity authentication."
+  },
+  "operationEvidence": {
+    "request": null,
+    "templates": [],
+    "availableUserConfirmation": null,
+    "preflight": null,
+    "nextStep": "The workflow is terminal; no further operation permission is available."
+  },
+  "rejectedReviewAuthority": "Rejected JSON, schema or semantic results are not an accepted Review. Positional issues and the linked role log may contain submitted evidence; never edit that output into Passed.",
+  "evidenceAuthority": "Only snapshot-matched host checks satisfy required commands. Auxiliary checks and implementation claims cannot replace them. Program output is reported diagnostics, not authoritative failure classification.",
+  "acceptanceComplete": true,
+  "integrityVersion": 2,
+  "checksPassed": true,
+  "verification": {
+    "snapshotId": "snapshot-1",
+    "treeId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "checks": [
+      {
+        "command": {
+          "executable": "node",
+          "args": [
+            "--version"
+          ],
+          "timeoutMs": 60000
+        },
+        "exitCode": 0,
+        "signal": null,
+        "timedOut": false,
+        "stdout": "node version",
+        "stderr": "",
+        "durationMs": 2
+      }
+    ]
+  },
+  "recordedReview": {
+    "outcome": "Passed",
+    "briefRevision": 1,
+    "snapshotId": "snapshot-1",
+    "treeId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "findings": [],
+    "checked": [
+      "AC1",
+      "caller",
+      "test"
+    ],
+    "unchecked": [],
+    "reason": "",
+    "acceptance": [
+      {
+        "id": "AC1",
+        "status": "Passed",
+        "evidence": [
+          {
+            "kind": "verification",
+            "checkIndex": 0,
+            "explanation": "Required check passed"
+          }
+        ]
+      }
+    ]
+  },
+  "checkOutcomes": [
+    {
+      "command": {
+        "executable": "node",
+        "args": [
+          "--version"
+        ],
+        "timeoutMs": 60000
+      },
+      "outcome": "passed",
+      "failureCause": null,
+      "effectiveTimeoutMs": null
+    }
+  ],
+  "reviewStatus": "Passed",
+  "acceptance": [
+    {
+      "id": "AC1",
+      "status": "Passed",
+      "evidence": [
+        {
+          "kind": "verification",
+          "checkIndex": 0,
+          "explanation": "Required check passed"
+        }
+      ]
+    }
+  ],
+  "hostOperation": null,
+  "handoffRequires": "Distinct current one-use logged handoff permission, requirements/recovery receipts, matching checks, SHA256-bound workspace contents and evidenced acceptance from a fresh Review. No commit or push."
+}
+\`\`\`
+
+## Limitations
+
+\`\`\`json
+{
+  "reported": [],
+  "unchecked": [],
+  "executionMs": 22,
+  "executionWallMs": null,
+  "executionWindow": null,
+  "executionBudgetMs": 1800000,
+  "repairRounds": 0,
+  "maxRepairRounds": 2,
+  "filePolicy": "Native partial enforcement is accepted, not full isolation. Windows ACL has hard-link and AppContainer-ACL limitations. File enforcement does not isolate reads, network, or process visibility; prompts and tool guards do not guarantee prevention of every bypass. Verification exports have no .git metadata.",
+  "reviewEvidence": "Fresh Agent context is not evidence of a different model or provider. Scripted runs are not independent live-model review.",
+  "gitActions": "The workflow stages but never commits, pushes, or merges."
+}
+\`\`\`
+
+## Follow-up options
+
+\`\`\`json
+[
+  "Obtain logged user confirmation of unchanged requirements and any historical recovery. No revision or budget reset; execution remains blocked."
+]
+\`\`\`"
+`;

@@ -1,0 +1,34 @@
+# Bilingual-pair consistency record for bundle.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/bundle.md
+/bundle-composition:
+  en: ab44eb79722a1042
+  zh: 69194f9ab3fb4942
+/bundle-composition/summary:
+  en: 3435cfdc26918bf8
+  zh: 623f4f27d8128ad9
+/bundle-composition/prerequisites:
+  en: 58ad2765f834f21d
+  zh: 0794d4b9781ad83c
+/bundle-composition/integrated-panel-and-package-entries:
+  en: fec3e55c904083f2
+  zh: 0010db0e7eab24b7
+/bundle-composition/provider-ownership:
+  en: 4306104bf5877ac2
+  zh: bced0e80ce58dbc1
+/bundle-composition/presets-and-permissions:
+  en: a9b2e39524fa746e
+  zh: 50d2f79c661bd68f
+/bundle-composition/user-task-path:
+  en: 38e041f2b72f9e13
+  zh: 8b810ace4a87dad7
+/bundle-composition/selection-lifecycle:
+  en: ac57aea1bab88d30
+  zh: d2941dd59bd173b1
+/bundle-composition/validation-limits:
+  en: 5e3a7d63e1a932ae
+  zh: 7550d25a31522838
+/bundle-composition/confirmation-configuration:
+  en: d8ad85be61ca25ae
+  zh: f3e514f49bfdab89

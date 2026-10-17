@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`shipped Review-Gated Main PTC turn and durable replay > logs Main SDK calls, actual approval/checks, fresh roles, and the six-part final report ('Windows ACL') > actual native PTC mode and enforcement 1`] = `
+[
+  {
+    "enforcement": "partial",
+    "mode": "read-only",
+    "role": "main",
+  },
+  {
+    "enforcement": "partial",
+    "mode": "read-only",
+    "role": "main",
+  },
+  {
+    "enforcement": "partial",
+    "mode": "workspace-write",
+    "role": "implementation",
+  },
+  {
+    "enforcement": "partial",
+    "mode": "read-only",
+    "role": "review",
+  },
+  {
+    "enforcement": "partial",
+    "mode": "read-only",
+    "role": "main",
+  },
+  {
+    "enforcement": "partial",
+    "mode": "read-only",
+    "role": "main",
+  },
+]
+`;
+
+exports[`shipped Review-Gated Main PTC turn and durable replay > logs Main SDK calls, actual approval/checks, fresh roles, and the six-part final report ('Windows ACL') > model-visible Main report headings 1`] = `
+[
+  "## Completion",
+  "## Changes",
+  "## Problems",
+  "## Verification and review",
+  "## Limitations",
+  "## Follow-up options",
+]
+`;
+
+exports[`shipped Review-Gated Main PTC turn and durable replay > logs Main SDK calls, actual approval/checks, fresh roles, and the six-part final report ('simulated') > model-visible Main report headings 1`] = `
+[
+  "## Completion",
+  "## Changes",
+  "## Problems",
+  "## Verification and review",
+  "## Limitations",
+  "## Follow-up options",
+]
+`;

@@ -1,0 +1,22 @@
+# Bilingual-pair consistency record for security.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/security.md
+/role-execution-and-file-permissions:
+  en: 934851318ac78bc3
+  zh: afa4b16dbbb3ecce
+/role-execution-and-file-permissions/admission-and-local-authority:
+  en: bab7e59dd8f68ea4
+  zh: 7a43591c08a05e03
+/role-execution-and-file-permissions/process-enforcement:
+  en: 546689c7be23993b
+  zh: 99acdc9bfbbb732e
+/role-execution-and-file-permissions/git-and-source-integrity:
+  en: 51260716eaf3ec1e
+  zh: 77070a9b3d52d370
+/role-execution-and-file-permissions/diagnosis-results-and-cancellation:
+  en: f2be1da967c77203
+  zh: 794f8de2e8449738
+/role-execution-and-file-permissions/genuine-decision-input:
+  en: 04033f3c368b07c9
+  zh: 9c6921d2928811f6

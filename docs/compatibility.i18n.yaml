@@ -1,0 +1,7 @@
+# Bilingual-pair consistency record for compatibility.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/compatibility.md
+/compatibility:
+  en: 42ad38a8f969521a
+  zh: 4173c02c7c5bb65f

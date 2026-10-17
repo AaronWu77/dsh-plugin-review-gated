@@ -1,0 +1,31 @@
+# Bilingual-pair consistency record for recovery.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/recovery.md
+/recovery-and-main-reports:
+  en: d0214bbd9ec26c28
+  zh: e8e24f54333ff8a3
+/recovery-and-main-reports/summary:
+  en: 77534e734ed552cd
+  zh: 5401e11a0a957698
+/recovery-and-main-reports/contents:
+  en: 1c64fe70c6e77abc
+  zh: 04a019c5e269943b
+/recovery-and-main-reports/paused-tasks:
+  en: ba2bec44066819cb
+  zh: e66fe60eb60ca90c
+/recovery-and-main-reports/interrupted-hosts:
+  en: eac0195dce2e580d
+  zh: 5e8355950eb73c0a
+/recovery-and-main-reports/cancellation:
+  en: 4dde9d28a34d83d8
+  zh: 20f709fabfa4fc20
+/recovery-and-main-reports/report-meaning:
+  en: b60871314ddedbdc
+  zh: 357f610eaeb6d088
+/recovery-and-main-reports/dev-note:
+  en: ae93b2194a7d875b
+  zh: 069c0dfcff255986
+/recovery-and-main-reports/decision-and-operation-receipts:
+  en: 9e18d1d201d12f94
+  zh: 7b88f5c4c73de3cc

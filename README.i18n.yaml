@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write README.md
+/:
+  en: 167d8d5f0d31073b
+  zh: d52973848c025744
+/review-gated-mode:
+  en: 549d6be235ca47c9
+  zh: 6af3d6b5dfa47e56
+/review-gated-mode/summary:
+  en: 7737e3dbfc6e5fbf
+  zh: 49b4b73b05b9bf44
+/review-gated-mode/contents:
+  en: 692cab5b78d1a59e
+  zh: aefb0f131d2134e9
+/review-gated-mode/use-the-mode:
+  en: 8aa032abe3af3874
+  zh: b9d64fff8ba94778
+/review-gated-mode/development:
+  en: 402a4b35e42cfa97
+  zh: d66557dedc08d27c
+/review-gated-mode/model-experience:
+  en: 5292574fefb99301
+  zh: fbfb367a95c573a5
+/review-gated-mode/known-limitations:
+  en: 84bed3879967623f
+  zh: db38bdc856a80f4e
+/review-gated-mode/dev-note:
+  en: b75c8458928b72b9
+  zh: 94aace1d30522a51
+/review-gated-mode/button-confirmation-and-managed-subagents:
+  en: c5887ac7f0b8373b
+  zh: 024e51c76fdf5baf
+/review-gated-mode/delegation-and-optional-collaboration:
+  en: c49031359a142fd7
+  zh: f9046c3ffdd1b75a
+/review-gated-mode/observed-workflow-panel:
+  en: 821de6feef532039
+  zh: e7d3b04a367beafa

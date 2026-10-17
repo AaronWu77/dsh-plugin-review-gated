@@ -1,0 +1,43 @@
+# Bilingual-pair consistency record for workflow.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/workflow.md
+/review-gated-development:
+  en: 65165f074dc689fd
+  zh: a1a15ab3af9afccf
+/review-gated-development/summary:
+  en: da75beb3c7ce8d29
+  zh: 26fb7c150aeb9b87
+/review-gated-development/table-of-contents:
+  en: 6dd878779ffaa4dd
+  zh: 2e0cca6d73880d0d
+/review-gated-development/scope-and-prerequisites:
+  en: c0ecaf88eed63e43
+  zh: 37ec8ce324ecd7aa
+/review-gated-development/1-confirm-requirements:
+  en: 2e205e1f82098097
+  zh: 2a8b15a5e7066b19
+/review-gated-development/2-implement-and-stage:
+  en: 49d059b45774f4a0
+  zh: 68dfcb4b974a8844
+/review-gated-development/3-review-independently:
+  en: b109184cd3240e89
+  zh: b3b5e3195885872d
+/review-gated-development/4-repair-or-pause:
+  en: efb85aa3456f765e
+  zh: 15315fb2dc565d16
+/review-gated-development/5-verify-and-hand-off:
+  en: 8cf9ad395975ace5
+  zh: 6bef5d13415f871d
+/review-gated-development/after-install-retest-prompts:
+  en: c100655e42798eae
+  zh: b28fc099dad2e318
+/review-gated-development/further-exploration:
+  en: 50fb1e2481f4ca86
+  zh: cb02a37ec4f57df6
+/review-gated-development/dev-note:
+  en: 1318b8cacae58fce
+  zh: 7760ebb3e45940f6
+/review-gated-development/decision-cards-and-semantic-rejection:
+  en: dc9dfcc85d1624dd
+  zh: 18d86cf9a5156e5c

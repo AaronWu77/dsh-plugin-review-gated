@@ -1,0 +1,16 @@
+# Bilingual-pair consistency record for guide.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/upgrade-guide/v0.1.0-alpha.9/scrollable-card-recovery/guide.md
+/:
+  en: e14fffe54a3673ef
+  zh: 217ed0c7381d493c
+/scrollable-cards-and-interrupted-window-recovery-alpha-9-alpha-10:
+  en: 258ff887d4b14552
+  zh: 87a1a07eed5ce08a
+/scrollable-cards-and-interrupted-window-recovery-alpha-9-alpha-10/change:
+  en: ba803360b9c095e5
+  zh: 1bc2d13473c69a89
+/scrollable-cards-and-interrupted-window-recovery-alpha-9-alpha-10/migration:
+  en: f271728d1baa397d
+  zh: 64937cac6c29db90

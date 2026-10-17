@@ -1,0 +1,215 @@
+# Opt-in overlay for the pinned DSH Web profile. Existing PTC preset and default roster selection stay unchanged.
+- id: ptc-runtime
+  name: '@deepseek-ai/dsh-ptc-runtime-node'
+  disabled: false
+
+- insert:
+    - id: review-gated-observed-ui
+      name: ./ui/lib/index.js
+    - id: agent-preset-registry
+      name: '@aaronwu/dsh-review-gated/registry'
+      config:
+        default: standard
+    - id: review-gated-host
+      name: cordis:group
+      group: true
+      config:
+        - id: review-gated-permissions
+          name: '@aaronwu/dsh-review-gated/permissions'
+        - id: review-gated-local-workspace
+          name: '@aaronwu/dsh-review-gated/local-workspace'
+        - id: review-gated-native-sandbox
+          name: '@aaronwu/dsh-review-gated/native-sandbox'
+        - id: review-gated-support
+          name: '@aaronwu/dsh-review-gated/support'
+        - id: review-gated-roles
+          name: '@aaronwu/dsh-review-gated/roles'
+          config:
+            implementationPreset: review-gated-implementation
+            reviewPreset: review-gated-review
+            maxDepth: 1
+        - id: review-gated-host-world
+          name: '@aaronwu/dsh-review-gated/host-world'
+        - id: review-gated-verification
+          name: '@aaronwu/dsh-review-gated/verification'
+        - id: review-gated-execution
+          name: '@aaronwu/dsh-review-gated/execution'
+        - id: review-gated-host-tasks
+          name: '@aaronwu/dsh-review-gated/tasks'
+
+    - id: preset-review-gated
+      name: '@aaronwu/dsh-review-gated/preset'
+      config:
+        id: review-gated
+        name: Review-Gated
+        description: Clarify, approve, implement, verify and independently review before handoff.
+        order: 3
+        plugins:
+          - id: native-role-world
+            name: cordis:group
+            group: true
+            isolate:
+              fs: true
+              subprocess: true
+              sandbox: true
+              ptcRuntime: true
+            config:
+              - id: native-runtime
+                name: '@aaronwu/dsh-review-gated/native-runtime'
+              - id: persona
+                name: '@deepseek-ai/dsh-persona'
+                config:
+                  prefix: You are the Main Agent of a Review-Gated coding workflow.
+                  suffix: Use the logged current working directory supplied by the Host.
+              - id: workflow-tools
+                name: '@aaronwu/dsh-review-gated/main-tools'
+              - id: role-guard
+                name: '@aaronwu/dsh-review-gated/role-guard'
+                config:
+                  role: main
+              - id: tool-fs
+                name: '@deepseek-ai/dsh-tool-fs'
+              - id: tool-fs-search
+                name: '@deepseek-ai/dsh-tool-fs-search'
+                config:
+                  sampleOverCapGlobResults: false
+              - id: tool-presentation
+                name: '@deepseek-ai/dsh-agent-tool-presentation'
+                config:
+                  mode: ptc
+    - id: preset-review-gated-implementation
+      name: '@aaronwu/dsh-review-gated/preset'
+      config:
+        id: review-gated-implementation
+        name: Review-Gated Implementation (host only)
+        description: Internal implementation role; direct root selection is refused.
+        order: 4
+        plugins:
+          - id: native-role-world
+            name: cordis:group
+            group: true
+            isolate:
+              fs: true
+              subprocess: true
+              sandbox: true
+              ptcRuntime: true
+            config:
+              - id: native-runtime
+                name: '@aaronwu/dsh-review-gated/native-runtime'
+              - id: persona
+                name: '@deepseek-ai/dsh-persona'
+                config:
+                  prefix: You are the Implementation Agent. Implement only the approved brief, test it, and return the required final JSON.
+                  suffix: Use the logged current working directory supplied by the Host.
+              - id: role-guard
+                name: '@aaronwu/dsh-review-gated/role-guard'
+                config:
+                  role: implementation
+              - id: tool-fs
+                name: '@deepseek-ai/dsh-tool-fs'
+              - id: tool-fs-search
+                name: '@deepseek-ai/dsh-tool-fs-search'
+                config:
+                  sampleOverCapGlobResults: false
+              - id: shell-tools
+                name: cordis:group
+                group: true
+                isolate:
+                  shell: true
+                  sandbox: true
+                config:
+                  - id: strict-role-sandbox
+                    name: '@aaronwu/dsh-review-gated/strict-sandbox'
+                  - id: bash-sandbox
+                    name: '@deepseek-ai/dsh-bash-sandbox'
+                    disabled: !!js process.platform === 'win32'
+                  - id: pwsh-sandbox
+                    name: '@deepseek-ai/dsh-pwsh-sandbox'
+                    disabled: !!js process.platform !== 'win32'
+                  - id: tool-bash
+                    name: '@deepseek-ai/dsh-tool-bash'
+                    disabled: !!js process.platform === 'win32'
+                  - id: tool-pwsh
+                    name: '@deepseek-ai/dsh-tool-pwsh'
+                    disabled: !!js process.platform !== 'win32'
+              - id: tool-presentation
+                name: '@deepseek-ai/dsh-agent-tool-presentation'
+                config:
+                  mode: ptc
+    - id: preset-review-gated-review
+      name: '@aaronwu/dsh-review-gated/preset'
+      config:
+        id: review-gated-review
+        name: Review-Gated Review (host only)
+        description: Internal read-only review role; direct root selection is refused.
+        order: 5
+        plugins:
+          - id: native-role-world
+            name: cordis:group
+            group: true
+            isolate:
+              fs: true
+              subprocess: true
+              sandbox: true
+              ptcRuntime: true
+            config:
+              - id: native-runtime
+                name: '@aaronwu/dsh-review-gated/native-runtime'
+              - id: persona
+                name: '@deepseek-ai/dsh-persona'
+                config:
+                  prefix: You are a fresh Review Agent. Assess only the approved brief, immutable snapshot, diff and verification evidence. Return the required final JSON; never repair files.
+                  suffix: Use the logged current working directory supplied by the Host.
+              - id: role-guard
+                name: '@aaronwu/dsh-review-gated/role-guard'
+                config:
+                  role: review
+              - id: tool-fs
+                name: '@deepseek-ai/dsh-tool-fs'
+              - id: tool-fs-search
+                name: '@deepseek-ai/dsh-tool-fs-search'
+                config:
+                  sampleOverCapGlobResults: false
+              - id: tool-presentation
+                name: '@deepseek-ai/dsh-agent-tool-presentation'
+                config:
+                  mode: ptc
+
+    - id: preset-review-gated-diagnostic
+      name: '@aaronwu/dsh-review-gated/preset'
+      config:
+        id: review-gated-diagnostic
+        name: Review-Gated Diagnostic (host only)
+        description: Internal read-only diagnosis; cannot approve, implement or authorize handoff.
+        order: 6
+        plugins:
+          - id: native-role-world
+            name: cordis:group
+            group: true
+            isolate:
+              fs: true
+              subprocess: true
+              sandbox: true
+              ptcRuntime: true
+            config:
+              - id: native-runtime
+                name: '@aaronwu/dsh-review-gated/native-runtime'
+              - id: persona
+                name: '@deepseek-ai/dsh-persona'
+                config:
+                  prefix: You are a read-only Diagnostic Agent. Investigate only the Main question and return factual findings and limitations. Do not approve requirements, repair files or claim a Passed development review.
+                  suffix: Use the logged current working directory supplied by the Host.
+              - id: role-guard
+                name: '@aaronwu/dsh-review-gated/role-guard'
+                config:
+                  role: diagnostic
+              - id: tool-fs
+                name: '@deepseek-ai/dsh-tool-fs'
+              - id: tool-fs-search
+                name: '@deepseek-ai/dsh-tool-fs-search'
+                config:
+                  sampleOverCapGlobResults: false
+              - id: tool-presentation
+                name: '@deepseek-ai/dsh-agent-tool-presentation'
+                config:
+                  mode: ptc

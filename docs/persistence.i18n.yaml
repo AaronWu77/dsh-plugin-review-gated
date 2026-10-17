@@ -1,0 +1,25 @@
+# Bilingual-pair consistency record for persistence.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/persistence.md
+/workflow-persistence:
+  en: f9193b5590c471f0
+  zh: 1d5aa84163d86a9a
+/workflow-persistence/storage-and-identity:
+  en: 4439a367b37b0d1d
+  zh: 30a5ae60f821aeaf
+/workflow-persistence/historical-phase-versus-current-evidence:
+  en: 6474f277cacd095c
+  zh: c0ed8d187275bc84
+/workflow-persistence/model-visible-records:
+  en: a646a0f98b1d6405
+  zh: 9d8d6685a3530e01
+/workflow-persistence/backup-recovery-and-rollback:
+  en: 374af2d3f5cc5768
+  zh: 9bb8261f5128275f
+/workflow-persistence/version-8-repository-observations:
+  en: 98eeecb8296b2577
+  zh: cc89024f3f2122b4
+/workflow-persistence/version-7-recovery-records:
+  en: 44dc62cc0a5fad46
+  zh: 73498b51350d6808

@@ -1,0 +1,28 @@
+# Bilingual-pair consistency record for execution.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/execution.md
+/execution-and-snapshot-verification:
+  en: 6530e8a3d65dc194
+  zh: 856b3c3be65dd670
+/execution-and-snapshot-verification/main-operations:
+  en: dad1498abd0198e6
+  zh: af409ccab0d9271d
+/execution-and-snapshot-verification/repository-preflight:
+  en: 1098f745eed85d3c
+  zh: 34322e0ae685031f
+/execution-and-snapshot-verification/baseline-scope-and-byte-integrity:
+  en: a6832036bdd463f6
+  zh: 79cb346818d8d478
+/execution-and-snapshot-verification/checks-on-immutable-source:
+  en: 686e17a15065c1d2
+  zh: 4e2a99be26d49299
+/execution-and-snapshot-verification/windows-command-compatibility:
+  en: 722849f0f678ec19
+  zh: 2bc66d947a2068f5
+/execution-and-snapshot-verification/acceptance-evidence-and-repairs:
+  en: d63d50357f920819
+  zh: 10d79d4f43f573eb
+/execution-and-snapshot-verification/rejected-review-evidence:
+  en: be75982005312bb0
+  zh: f9daa87100889ad2

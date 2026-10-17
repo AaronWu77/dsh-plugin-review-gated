@@ -1,0 +1,37 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write ui/README.md
+/:
+  en: afc199b552349b03
+  zh: 6aaa8c6eecb8d03e
+/review-gated-observed-status-panel:
+  en: 1ffbdd7699f6f735
+  zh: 2585976ad92d2816
+/review-gated-observed-status-panel/summary:
+  en: 9cbd4bc9e6ea3a44
+  zh: 74f1fbe0745f6c78
+/review-gated-observed-status-panel/table-of-contents:
+  en: ffd986ec3af982cd
+  zh: fb49c8d0ac1ddfd3
+/review-gated-observed-status-panel/use-the-panel:
+  en: b83ad5d7653a17b2
+  zh: 0c69fa095d84a484
+/review-gated-observed-status-panel/use-the-panel/candidate-checks:
+  en: 1a9073d5a7186b7d
+  zh: e6d6f3f9994551a4
+/review-gated-observed-status-panel/understand-the-implementation:
+  en: eadf546e6a5b5fc4
+  zh: 15ede2b0be7f9aab
+/review-gated-observed-status-panel/model-experience:
+  en: 2a66dafd810183b7
+  zh: ce5b39db9ebebd95
+/review-gated-observed-status-panel/model-experience/kv-cache-effect:
+  en: dcff58a7140c7b6c
+  zh: dea1379abba6f6e4
+/review-gated-observed-status-panel/known-limitations-and-deferred-work:
+  en: fd396754de1bbea2
+  zh: 193734183460020b
+/review-gated-observed-status-panel/known-limitations-and-deferred-work/dev-note:
+  en: f12c5a8135a4f165
+  zh: a1eb7c69994a86ab

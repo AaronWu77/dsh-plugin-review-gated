@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "composite": true, "incremental": true, "tsBuildInfoFile": "dist/tsconfig.host.tsbuildinfo" },
+  "include": [
+    "src/index.ts",
+    "src/projection.ts",
+    "src/summary.ts"
+  ]
+}

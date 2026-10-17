@@ -1,0 +1,11 @@
+.dialog { max-height: 100%; }
+.scroll { overflow: auto; min-height: 0; --dsh-scrollbar-track-margin: 8px; --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2); --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2); font: var(--dsw-font-xs-13); color: var(--dsw-alias-label-primary); overflow-wrap: anywhere; }
+.scroll p { margin: 8px 0; }
+.notice { color: var(--dsw-alias-label-secondary); }
+.facts { display: grid; grid-template-columns: minmax(100px, 1fr) minmax(0, 3fr); gap: 8px 16px; }
+.facts dt { color: var(--dsw-alias-label-secondary); }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.scroll h3 { font: var(--dsw-font-xs-strong-13); margin: 16px 0 8px; }
+.loading { display: flex; justify-content: center; align-items: center; padding: 24px; }
+.children { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 480px) { .facts { grid-template-columns: 1fr; gap: 4px; } .facts dd { margin-bottom: 8px; } }

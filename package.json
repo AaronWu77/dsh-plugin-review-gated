@@ -1,0 +1,285 @@
+{
+  "name": "@aaronwu/dsh-review-gated",
+  "version": "0.1.0-alpha.13",
+  "description": "Review-gated development with approved execution, independent review and an integrated status panel.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronWu77/dsh-plugin-review-gated.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/workflow/controller.d.ts",
+      "default": "./dist/workflow/controller.js"
+    },
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./support": {
+      "types": "./dist/storage/support.d.ts",
+      "default": "./dist/storage/support.js"
+    },
+    "./journal": {
+      "types": "./dist/storage/journal.d.ts",
+      "default": "./dist/storage/journal.js"
+    },
+    "./permissions": {
+      "types": "./dist/security/permissions.d.ts",
+      "default": "./dist/security/permissions.js"
+    },
+    "./native-sandbox": {
+      "types": "./dist/security/native.d.ts",
+      "default": "./dist/security/native.js"
+    },
+    "./strict-sandbox": {
+      "types": "./dist/security/strict-sandbox.d.ts",
+      "default": "./dist/security/strict-sandbox.js"
+    },
+    "./role-guard": {
+      "types": "./dist/security/role-guard.d.ts",
+      "default": "./dist/security/role-guard.js"
+    },
+    "./native-runtime": {
+      "types": "./dist/security/native-runtime.d.ts",
+      "default": "./dist/security/native-runtime.js"
+    },
+    "./roles": {
+      "types": "./dist/roles/runner.d.ts",
+      "default": "./dist/roles/runner.js"
+    },
+    "./verification": {
+      "types": "./dist/verification/runner.d.ts",
+      "default": "./dist/verification/runner.js"
+    },
+    "./execution": {
+      "types": "./dist/workflow/execution.d.ts",
+      "default": "./dist/workflow/execution.js"
+    },
+    "./report": {
+      "types": "./dist/workflow/report.d.ts",
+      "default": "./dist/workflow/report.js"
+    },
+    "./preset": {
+      "types": "./dist/preset.d.ts",
+      "default": "./dist/preset.js"
+    },
+    "./registry": {
+      "types": "./dist/registry.d.ts",
+      "default": "./dist/registry.js"
+    },
+    "./local-workspace": {
+      "types": "./dist/security/local-workspace.d.ts",
+      "default": "./dist/security/local-workspace.js"
+    },
+    "./tasks": {
+      "types": "./dist/workflow/tasks.d.ts",
+      "default": "./dist/workflow/tasks.js"
+    },
+    "./host-world": {
+      "types": "./dist/security/host-world.d.ts",
+      "default": "./dist/security/host-world.js"
+    },
+    "./team-board": {
+      "types": "./dist/collaboration/team-board.d.ts",
+      "default": "./dist/collaboration/team-board.js"
+    },
+    "./main-tools": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./ui/lib/types/client/index.d.ts",
+      "default": "./ui/lib/client.js"
+    },
+    "./observed-ui": {
+      "types": "./ui/lib/types/index.d.ts",
+      "default": "./ui/lib/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "README.i18n.yaml",
+    "docs",
+    "UPGRADE.md",
+    "ui/README.md",
+    "ui/README.zh.md",
+    "ui/README.i18n.yaml",
+    "ui/src",
+    "ui/lib",
+    "scripts/profile-migration.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "scripts": {
+    "dev:link": "node scripts/link-dsh.mjs",
+    "build": "tsc -p tsconfig.build.json && node ui/scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm build && vitest run --configLoader runner",
+    "test:docs": "node scripts/check-docs.mjs",
+    "test:card-layout": "pnpm build && node scripts/check-card-layout.mjs",
+    "lint": "tsc --noEmit",
+    "check": "pnpm typecheck && pnpm test && pnpm test:docs && pnpm build",
+    "test:integration": "pnpm build && vitest run tests/integration --configLoader runner",
+    "test:package": "pnpm build && node scripts/check-package.mjs",
+    "prepack": "pnpm build",
+    "build:ui": "node ui/scripts/build.mjs",
+    "test:ui": "node scripts/test-ui.mjs",
+    "check:ui": "pnpm typecheck:ui && pnpm test:ui && node ui/scripts/check-candidate.mjs",
+    "build:core": "tsc -p tsconfig.build.json",
+    "typecheck:ui": "tsc -p ui/tsconfig.host.json --noEmit && tsc -p ui/tsconfig.client.json --noEmit"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-agent": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session-projection": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tools": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-user-questions": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-sandbox-policy": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-subagent": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-scope": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-brand": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-tool-presentation": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-preset": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-preset-registry": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-fs": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-fs-search": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-bash": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-pwsh": "0.2.1-alpha.2",
+    "@deepseek-ai/cordis": "4.0.5-alpha.1",
+    "@deepseek-ai/schemastery": "3.18.5-alpha.1",
+    "@deepseek-ai/dsh-storage": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-storage-domain": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-storage-json": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-loop": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-ptc-runtime": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-ptc-runtime-node": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-fs": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-fs-local": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-subprocess": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-subprocess-local": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-sandbox-local": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-shell": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-persona": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-ask-user": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-fs-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-bash-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-pwsh-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-shell-env": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-experimental-agent-team": "0.2.1-alpha.2"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-session": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session-projection": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tools": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-api-session-controller": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-conversation": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-workspace": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-locale": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-renderer": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-session": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-slots": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-primitives": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-subagent": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-test-runtime": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-modules": "0.2.1-alpha.2",
+    "@deepseek-ai/cordis": "4.0.5-alpha.1",
+    "@deepseek-ai/cordis-plugin-loader": "1.0.6-alpha.1",
+    "@deepseek-ai/cordis-plugin-include": "1.0.10-alpha.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.1",
+    "@types/node": "^24.0.0",
+    "@testing-library/react": "^16.1.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.0",
+    "jsdom": "^29.1.1",
+    "esbuild": "^0.27.0",
+    "lightningcss": "^1.32.0",
+    "dsh-remote-ssh": "0.2.4-aaron.12-sidebar.6",
+    "@microsoft/agent-host-protocol": "1.0.0",
+    "@deepseek-ai/dsh-agent": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-user-questions": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-sandbox-policy": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-scope": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-brand": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-tool-presentation": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-preset": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-preset-registry": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-fs": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-fs-search": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-bash": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-pwsh": "0.2.1-alpha.2",
+    "@deepseek-ai/schemastery": "3.18.5-alpha.1",
+    "yaml": "^2.8.0",
+    "@deepseek-ai/dsh-storage": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-storage-domain": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-storage-json": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-agent-loop": "0.2.1-alpha.2",
+    "@deepseek-ai/cordis-plugin-group": "1.0.5-alpha.1",
+    "@deepseek-ai/dsh-app-boot": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-ptc-runtime": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-ptc-runtime-node": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-fs": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-fs-local": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-subprocess": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-subprocess-local": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-sandbox-local": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-shell": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-persona": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tool-ask-user": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-fs-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-bash-sandbox": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-pwsh-sandbox": "0.2.1-alpha.2",
+    "js-yaml": "^4.1.0",
+    "@types/js-yaml": "^4.0.9",
+    "@deepseek-ai/dsh-shell-env": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-settings": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-config-editor": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-spill-local": "0.2.1-alpha.2",
+    "tar": "^7.5.2",
+    "@deepseek-ai/dsh-experimental-agent-team": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-working-directory": "0.2.1-alpha.2"
+  },
+  "dependencies": {
+    "yaml": "^2.8.0",
+    "zod": "4.4.3"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-experimental-agent-team": {
+      "optional": true
+    }
+  }
+}
